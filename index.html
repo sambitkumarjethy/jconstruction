@@ -7,37 +7,50 @@
 
 <style>
 * {margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
-body {line-height:1.6;scroll-behavior:smooth;}
+body {line-height:1.6;scroll-behavior:smooth;background:#fafafa;}
 
-header {position:fixed;width:100%;top:0;background:rgba(0,0,0,0.7);color:#fff;z-index:1000;}
+header {position:fixed;width:100%;top:0;background:rgba(0,0,0,0.7);color:#fff;z-index:1000;backdrop-filter:blur(5px);}
 nav {display:flex;justify-content:space-between;padding:15px 40px;align-items:center;}
-nav h1 {font-size:24px;}
+nav h1 {font-size:24px;letter-spacing:1px;}
 nav ul {display:flex;list-style:none;}
 nav ul li {margin-left:20px;}
 nav ul li a {color:white;text-decoration:none;transition:0.3s;}
 nav ul li a:hover {color:#f4a261;}
 
-/* BANNER SLIDER */
+/* BANNER */
 .slider {height:100vh;position:relative;overflow:hidden;}
 .slide {position:absolute;width:100%;height:100%;background-size:cover;background-position:center;opacity:0;transition:opacity 1s ease-in-out;}
 .slide.active {opacity:1;}
-.slide-content {position:absolute;bottom:30%;left:10%;color:white;}
-.slide-content h2 {font-size:40px;margin-bottom:10px;}
+.slide-content {position:absolute;bottom:30%;left:10%;color:white;animation:slideUp 1s ease;}
+.slide-content h2 {font-size:42px;margin-bottom:10px;text-shadow:2px 2px 8px rgba(0,0,0,0.6);} 
+
+@keyframes slideUp {from{transform:translateY(50px);opacity:0;}to{transform:translateY(0);opacity:1;}}
 
 section {padding:100px 40px;max-width:1100px;margin:auto;}
-h2 {margin-bottom:20px;text-align:center;}
+h2 {margin-bottom:20px;text-align:center;font-size:32px;position:relative;}
+h2::after {content:'';width:60px;height:3px;background:#e76f51;display:block;margin:10px auto;border-radius:5px;}
 
-.fade-in {opacity:0;transform:translateY(30px);transition:all 1s ease;}
+/* ABOUT STYLE */
+.about-box {background:white;padding:40px;border-radius:15px;box-shadow:0 10px 30px rgba(0,0,0,0.1);transition:0.4s;}
+.about-box:hover {transform:translateY(-8px);}
+.about-box p {margin-bottom:15px;color:#555;font-size:17px;}
+.about-box strong {color:#e76f51;}
+
+/* SERVICES */
+.services {display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;margin-top:20px;}
+.card {background:white;padding:25px;border-radius:15px;text-align:center;box-shadow:0 5px 20px rgba(0,0,0,0.1);transition:0.4s;position:relative;overflow:hidden;}
+.card::before {content:'';position:absolute;width:100%;height:100%;top:0;left:0;background:#e76f51;opacity:0;transition:0.4s;z-index:0;}
+.card:hover::before {opacity:0.1;}
+.card:hover {transform:translateY(-10px) scale(1.05);} 
+.card h3 {position:relative;z-index:1;margin-bottom:10px;}
+
+/* ANIMATION */
+.fade-in {opacity:0;transform:translateY(40px);transition:all 1s ease;}
 .fade-in.show {opacity:1;transform:translateY(0);}
 
-.card {background:#f4f4f4;padding:20px;border-radius:10px;text-align:center;transition:0.3s;}
-.card:hover {background:#e9c46a;transform:translateY(-8px) scale(1.03);}
+.contact {background:#f4f4f4;padding:60px 20px;text-align:center;border-radius:10px;}
 
-.services {display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
-
-.contact {background:#f4f4f4;padding:60px 20px;text-align:center;}
-
-footer {background:#222;color:white;text-align:center;padding:15px;}
+footer {background:#222;color:white;text-align:center;padding:15px;margin-top:40px;}
 </style>
 </head>
 
@@ -54,46 +67,43 @@ footer {background:#222;color:white;text-align:center;padding:15px;}
   </nav>
 </header>
 
-<!-- BANNER SLIDER -->
+<!-- BANNER -->
 <div class="slider">
   <div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1503387762-592deb58ef4e');">
-    <div class="slide-content">
-      <h2>Building Your Dream Home</h2>
-    </div>
+    <div class="slide-content"><h2>Building Your Dream Home</h2></div>
   </div>
-
   <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab');">
-    <div class="slide-content">
-      <h2>Modern & Strong Construction</h2>
-    </div>
+    <div class="slide-content"><h2>Modern & Strong Construction</h2></div>
   </div>
-
   <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1504307651254-35680f356dfd');">
-    <div class="slide-content">
-      <h2>Trusted by Clients</h2>
-    </div>
+    <div class="slide-content"><h2>Trusted by Clients</h2></div>
   </div>
 </div>
 
+<!-- ABOUT -->
 <section id="about" class="fade-in">
   <h2>About J Construction</h2>
-  <p>
-    We are a trusted construction company delivering high-quality residential
-    and commercial projects with modern design and strong engineering.
-  </p>
-  <p><strong>GST Registration No:</strong> 21AQJPJ2032Q1ZV</p>
-</section>
-
-<section id="services" class="fade-in">
-  <h2>Our Services</h2>
-  <div class="services">
-    <div class="card">🏠 Residential</div>
-    <div class="card">🏢 Commercial</div>
-    <div class="card">🛠 Renovation</div>
-    <div class="card">📐 Interior Design</div>
+  <div class="about-box">
+    <p>
+      We are a trusted construction company delivering high-quality residential
+      and commercial projects with modern design and strong engineering.
+    </p>
+    <p><strong>GST Registration No:</strong> 21AQJPJ2032Q1ZV</p>
   </div>
 </section>
 
+<!-- SERVICES -->
+<section id="services" class="fade-in">
+  <h2>Our Services</h2>
+  <div class="services">
+    <div class="card"><h3>🏠 Residential</h3></div>
+    <div class="card"><h3>🏢 Commercial</h3></div>
+    <div class="card"><h3>🛠 Renovation</h3></div>
+    <div class="card"><h3>📐 Interior Design</h3></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
 <section id="contact" class="contact fade-in">
   <h2>Contact Us</h2>
   <p><strong>📍 Location:</strong> Bania Sahi, Chandini Chowk, Cuttack, Odisha - 753002</p>
@@ -109,22 +119,12 @@ footer {background:#222;color:white;text-align:center;padding:15px;}
 // slider
 let slides = document.querySelectorAll('.slide');
 let index = 0;
-function showSlide(){
-  slides.forEach(s=>s.classList.remove('active'));
-  slides[index].classList.add('active');
-  index = (index+1)%slides.length;
-}
+function showSlide(){slides.forEach(s=>s.classList.remove('active'));slides[index].classList.add('active');index=(index+1)%slides.length;}
 setInterval(showSlide,3000);
 
 // scroll animation
 const elements = document.querySelectorAll('.fade-in');
-function showOnScroll(){
-  const triggerBottom = window.innerHeight*0.85;
-  elements.forEach(el=>{
-    const top = el.getBoundingClientRect().top;
-    if(top < triggerBottom){ el.classList.add('show'); }
-  });
-}
+function showOnScroll(){const triggerBottom = window.innerHeight*0.85;elements.forEach(el=>{const top = el.getBoundingClientRect().top;if(top < triggerBottom){el.classList.add('show');}});} 
 window.addEventListener('scroll',showOnScroll);
 showOnScroll();
 </script>
