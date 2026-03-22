@@ -30,7 +30,7 @@ section {padding:100px 40px;max-width:1100px;margin:auto;}
 h2 {margin-bottom:20px;text-align:center;font-size:32px;position:relative;}
 h2::after {content:'';width:60px;height:3px;background:#e76f51;display:block;margin:10px auto;border-radius:5px;}
 
-/* ABOUT STYLE */
+/* ABOUT */
 .about-box {background:white;padding:40px;border-radius:15px;box-shadow:0 10px 30px rgba(0,0,0,0.1);transition:0.4s;}
 .about-box:hover {transform:translateY(-8px);}
 .about-box p {margin-bottom:15px;color:#555;font-size:17px;}
@@ -38,11 +38,11 @@ h2::after {content:'';width:60px;height:3px;background:#e76f51;display:block;mar
 
 /* SERVICES */
 .services {display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;margin-top:20px;}
-.card {background:white;padding:25px;border-radius:15px;text-align:center;box-shadow:0 5px 20px rgba(0,0,0,0.1);transition:0.4s;position:relative;overflow:hidden;}
-.card::before {content:'';position:absolute;width:100%;height:100%;top:0;left:0;background:#e76f51;opacity:0;transition:0.4s;z-index:0;}
-.card:hover::before {opacity:0.1;}
-.card:hover {transform:translateY(-10px) scale(1.05);} 
-.card h3 {position:relative;z-index:1;margin-bottom:10px;}
+.card {background:white;border-radius:15px;overflow:hidden;box-shadow:0 5px 20px rgba(0,0,0,0.1);transition:0.4s;}
+.card img {width:100%;height:180px;object-fit:cover;transition:0.4s;}
+.card:hover img {transform:scale(1.1);} 
+.card-content {padding:20px;text-align:center;}
+.card:hover {transform:translateY(-10px) scale(1.03);} 
 
 /* ANIMATION */
 .fade-in {opacity:0;transform:translateY(40px);transition:all 1s ease;}
@@ -92,14 +92,39 @@ footer {background:#222;color:white;text-align:center;padding:15px;margin-top:40
   </div>
 </section>
 
-<!-- SERVICES -->
+<!-- SERVICES WITH IMAGES -->
 <section id="services" class="fade-in">
   <h2>Our Services</h2>
   <div class="services">
-    <div class="card"><h3>🏠 Residential</h3></div>
-    <div class="card"><h3>🏢 Commercial</h3></div>
-    <div class="card"><h3>🛠 Renovation</h3></div>
-    <div class="card"><h3>📐 Interior Design</h3></div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
+      <div class="card-content">
+        <h3>🏠 Residential</h3>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab">
+      <div class="card-content">
+        <h3>🏢 Commercial</h3>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e">
+      <div class="card-content">
+        <h3>🛠 Renovation</h3>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511">
+      <div class="card-content">
+        <h3>📐 Interior Design</h3>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -116,13 +141,11 @@ footer {background:#222;color:white;text-align:center;padding:15px;margin-top:40
 </footer>
 
 <script>
-// slider
 let slides = document.querySelectorAll('.slide');
 let index = 0;
 function showSlide(){slides.forEach(s=>s.classList.remove('active'));slides[index].classList.add('active');index=(index+1)%slides.length;}
 setInterval(showSlide,3000);
 
-// scroll animation
 const elements = document.querySelectorAll('.fade-in');
 function showOnScroll(){const triggerBottom = window.innerHeight*0.85;elements.forEach(el=>{const top = el.getBoundingClientRect().top;if(top < triggerBottom){el.classList.add('show');}});} 
 window.addEventListener('scroll',showOnScroll);
