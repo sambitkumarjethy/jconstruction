@@ -6,266 +6,33 @@
 <title>J Construction</title>
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
-}
+* {margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+body {line-height:1.6;scroll-behavior:smooth;}
 
-body {
-  line-height: 1.6;
-}
+header {position:fixed;width:100%;top:0;background:rgba(0,0,0,0.7);color:#fff;z-index:1000;}
+nav {display:flex;justify-content:space-between;padding:15px 40px;align-items:center;}
+nav h1 {font-size:24px;}
+nav ul {display:flex;list-style:none;}
+nav ul li {margin-left:20px;}
+nav ul li a {color:white;text-decoration:none;transition:0.3s;}
+nav ul li a:hover {color:#f4a261;}
 
-/* Header */
-header {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  background: rgba(0,0,0,0.7);
-  color: #fff;
-  z-index: 1000;
-}
+section {padding:100px 40px;max-width:1100px;margin:auto;}
+h2 {margin-bottom:20px;text-align:center;}
 
-nav {
-  display: flex;
-  justify-content: space-between;
-  padding: 15px 40px;
-  align-items: center;
-}
+/* ANIMATIONS */
+.fade-in {opacity:0;transform:translateY(30px);transition:all 1s ease;}
+.fade-in.show {opacity:1;transform:translateY(0);}
 
-nav h1 {
-  font-size: 24px;
-}
+.card {background:#f4f4f4;padding:20px;border-radius:10px;text-align:center;transition:0.3s;}
+.card:hover {background:#e9c46a;transform:translateY(-8px) scale(1.03);}
 
-nav ul {
-  display: flex;
-  list-style: none;
-}
+.services {display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
 
-nav ul li {
-  margin-left: 20px;
-}
+.contact {background:#f4f4f4;padding:60px 20px;text-align:center;}
 
-nav ul li a {
-  color: white;
-  text-decoration: none;
-}
-
-nav ul li a:hover {
-  color: #f4a261;
-}
-
-/* Slider */
-.slider {
-  height: 100vh;
-  position: relative;
-  overflow: hidden;
-}
-
-.slide {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-}
-
-.slide.active {
-  opacity: 1;
-}
-
-.slide-content {
-  position: absolute;
-  bottom: 30%;
-  left: 10%;
-  color: white;
-}
-
-.slide-content h2 {
-  font-size: 40px;
-  margin-bottom: 10px;
-}
-
-.btn {
-  padding: 10px 20px;
-  background: #e76f51;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-}
-
-/* Sections */
-section {
-  padding: 80px 40px;
-  max-width: 1100px;
-  margin: auto;
-}
-
-h2 {
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-/* Services */
-.services {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-  gap: 20px;
-}
-
-.card {
-  padding: 20px;
-  background: #f4f4f4;
-  border-radius: 10px;
-  text-align: center;
-  transition: 0.3s;
-}
-
-.card:hover {
-  background: #e9c46a;
-  transform: translateY(-5px);
-}
-
-/* Contact */
-.contact {
-  text-align: center;
-}
-
-/* Footer */
-footer {
-  background: #222;
-  color: white;
-  text-align: center;
-  padding: 15px;
-}
-
-  .container {
-  max-width: 1100px;
-  margin: auto;
-  padding: 20px;
-}
-
-/* ABOUT */
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
-  align-items: center;
-}
-
-.about img {
-  width: 100%;
-  border-radius: 10px;
-}
-
-/* SERVICES */
-.services-section {
-  background: #f9f9f9;
-  padding: 60px 20px;
-}
-
-.services {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
-  gap: 20px;
-}
-
-.card {
-  background: white;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-8px);
-}
-
-/* PROJECTS */
-.projects {
-  padding: 60px 20px;
-}
-
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-  gap: 20px;
-}
-
-.project-card {
-  position: relative;
-  overflow: hidden;
-  border-radius: 10px;
-}
-
-.project-card img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-  transition: 0.4s;
-}
-
-.project-card:hover img {
-  transform: scale(1.1);
-}
-
-.overlay {
-  position: absolute;
-  bottom: 0;
-  background: rgba(0,0,0,0.7);
-  color: white;
-  width: 100%;
-  text-align: center;
-  padding: 10px;
-}
-
-/* CONTACT */
-.contact {
-  background: #f4f4f4;
-  padding: 60px 20px;
-}
-
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 12px;
-  margin: 10px 0;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-.contact-form button {
-  padding: 12px;
-  background: #e76f51;
-  color: white;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.contact-form button:hover {
-  background: #d65a3c;
-}
-
-/* MOBILE */
-@media(max-width: 768px) {
-  .about-grid,
-  .contact-grid {
-    grid-template-columns: 1fr;
-  }
-}
+footer {background:#222;color:white;text-align:center;padding:15px;}
 </style>
-
 </head>
 
 <body>
@@ -276,119 +43,35 @@ footer {
     <ul>
       <li><a href="#about">About</a></li>
       <li><a href="#services">Services</a></li>
-      <li><a href="#projects">Projects</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 </header>
 
-<!-- Slider -->
-<div class="slider">
-  <div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1503387762-592deb58ef4e');">
-    <div class="slide-content">
-      <h2>Building Your Dream Home</h2>
-      <a href="#contact" class="btn">Get Quote</a>
-    </div>
-  </div>
-
-  <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab');">
-    <div class="slide-content">
-      <h2>Modern & Strong Construction</h2>
-      <a href="#services" class="btn">Our Services</a>
-    </div>
-  </div>
-
-  <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1504307651254-35680f356dfd');">
-    <div class="slide-content">
-      <h2>Trusted by Clients</h2>
-      <a href="#about" class="btn">Know More</a>
-    </div>
-  </div>
-</div>
-
-<!-- ABOUT -->
-<section id="about" class="about">
-  <div class="container">
-    <div class="about-grid">
-      <div class="about-text">
-        <h2>About J Construction</h2>
-        <p>
-          We are a trusted construction company delivering high-quality residential
-          and commercial projects. With modern designs and strong engineering,
-          we ensure durability, safety, and client satisfaction.
-        </p>
-        <ul>
-          <li>✔ 10+ Years Experience</li>
-          <li>✔ 200+ Projects Completed</li>
-          <li>✔ 100% Client Satisfaction</li>
-        </ul>
-      </div>
-      <div class="about-img">
-        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e" />
-      </div>
-    </div>
-  </div>
+<section id="about" class="fade-in">
+  <h2>About J Construction</h2>
+  <p>
+    We are a trusted construction company delivering high-quality residential
+    and commercial projects with modern design and strong engineering.
+  </p>
+  <p><strong>GST Registration No:</strong> 21AQJPJ2032Q1ZV</p>
 </section>
 
-<!-- SERVICES -->
-<section id="services" class="services-section">
+<section id="services" class="fade-in">
   <h2>Our Services</h2>
   <div class="services">
-    <div class="card">
-      <h3>🏠 Residential</h3>
-      <p>Modern and durable homes tailored to your lifestyle.</p>
-    </div>
-    <div class="card">
-      <h3>🏢 Commercial</h3>
-      <p>Professional construction for offices and complexes.</p>
-    </div>
-    <div class="card">
-      <h3>🛠 Renovation</h3>
-      <p>Transform your old space into something new and modern.</p>
-    </div>
-    <div class="card">
-      <h3>📐 Interior Design</h3>
-      <p>Beautiful and functional interior solutions.</p>
-    </div>
+    <div class="card">🏠 Residential</div>
+    <div class="card">🏢 Commercial</div>
+    <div class="card">🛠 Renovation</div>
+    <div class="card">📐 Interior Design</div>
   </div>
 </section>
 
-<!-- PROJECTS -->
-<section id="projects" class="projects">
-  <h2>Our Projects</h2>
-  <div class="project-grid">
-    <div class="project-card">
-      <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd">
-      <div class="overlay">Residential Project</div>
-    </div>
-    <div class="project-card">
-      <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab">
-      <div class="overlay">Commercial Building</div>
-    </div>
-    <div class="project-card">
-      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
-      <div class="overlay">Luxury Villa</div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="contact">
+<section id="contact" class="contact fade-in">
   <h2>Contact Us</h2>
-  <div class="contact-grid">
-    <div class="contact-info">
-      <p><strong>📍 Location:</strong> Your City, India</p>
-      <p><strong>📞 Phone:</strong> +91 98765 43210</p>
-      <p><strong>📧 Email:</strong> info@jconstruction.com</p>
-    </div>
-
-    <form class="contact-form">
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea placeholder="Your Message"></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-  </div>
+  <p><strong>📍 Location:</strong> Bania Sahi, Chandini Chowk, Cuttack, Odisha - 753002</p>
+  <p><strong>📞 Phone:</strong> +91 9040121245</p>
+  <p><strong>📧 Email:</strong> prasantjethy3@gmail.com</p>
 </section>
 
 <footer>
@@ -396,16 +79,23 @@ footer {
 </footer>
 
 <script>
-let slides = document.querySelectorAll('.slide');
-let index = 0;
+// Fade-in animation on scroll
+const elements = document.querySelectorAll('.fade-in');
 
-function showSlide() {
-  slides.forEach((slide) => slide.classList.remove('active'));
-  slides[index].classList.add('active');
-  index = (index + 1) % slides.length;
+function showOnScroll() {
+  const triggerBottom = window.innerHeight * 0.85;
+
+  elements.forEach(el => {
+    const boxTop = el.getBoundingClientRect().top;
+
+    if (boxTop < triggerBottom) {
+      el.classList.add('show');
+    }
+  });
 }
 
-setInterval(showSlide, 3000);
+window.addEventListener('scroll', showOnScroll);
+showOnScroll();
 </script>
 
 </body>
